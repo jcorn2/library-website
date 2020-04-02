@@ -19,7 +19,7 @@ function Home() {
                 </ul>
             </div>
             <div class="col-start-2 col-end-4">
-                <div id="search-bar" className="bg-gray-300 p-8 mt-32 flex justify-around">
+                <div id="search-bar" className="bg-gray-300 p-8 mt-32 flex justify-around shadow-md">
                     <select name="categories" id="category-selecter" className="w-1/6">
                         <option value="catalog">Catalog</option>
                         <option value="catalog">Website</option>
