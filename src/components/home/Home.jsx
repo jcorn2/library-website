@@ -1,4 +1,5 @@
 import React from 'react';
+import Image1 from '../../assets/images/front-page-image1.png';
 
 function Home() {
     return (
@@ -17,7 +18,19 @@ function Home() {
                     <li className="p-2">Book 8</li>
                 </ul>
             </div>
-            <div class="col-start-2 col-end-4">Main Area</div>
+            <div class="col-start-2 col-end-4">
+                <div id="search-bar" className="bg-gray-300 p-8 mt-32 flex justify-around">
+                    <select name="categories" id="category-selecter" className="w-1/6">
+                        <option value="catalog">Catalog</option>
+                        <option value="catalog">Website</option>
+                        <option value="catalog">Articles</option>
+                    </select>
+                    <input type="text" id="search-bar" placeholder="Search" className="w-4/6 p-2" />
+                </div>
+                <div id="carousel" className="mt-8">
+                    <img src={Image1} alt="Access library offline" className="mx-auto" />
+                </div>
+            </div>
             <div class="ccol-span-4">
             <div class="col-span-1 mx-auto w-5/6 mb-auto mt-32">
                 <div className="border border-black">
