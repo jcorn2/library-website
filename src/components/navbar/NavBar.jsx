@@ -13,7 +13,9 @@ function NavBar() {
                     <button class="hover:bg-teal-400 flex-1 p-4 text-black font-bold">
                         <Link to="/locations">Locations/Hours</Link>
                     </button>
-                    <button class="hover:bg-teal-400 flex-1 p-4 text-black font-bold">Events</button>
+                    <button class="hover:bg-teal-400 flex-1 p-4 text-black font-bold">
+                        <Link to="/events">Events</Link>
+                    </button>
                     <button class="hover:bg-teal-400 flex-1 p-4 text-black font-bold">Get a Library Card</button>
                     <button class="hover:bg-teal-400 flex-1 p-4 text-black font-bold">Reserve a Meeting Room</button>
                     <button class="hover:bg-teal-400 flex-1 p-4 text-black font-bold">Donate</button>
