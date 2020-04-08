@@ -10,12 +10,12 @@ function NavBar() {
             </Link>
             <div class="flex flex-col h-full w-full justify-between">
                 <div class="bg-teal-600 flex justify-around items-center">
-                    <button class="hover:bg-teal-400 flex-1 p-4 text-black font-bold">
-                        <Link to="/locations">Locations/Hours</Link>
-                    </button>
-                    <button class="hover:bg-teal-400 flex-1 p-4 text-black font-bold">
-                        <Link to="/events">Events</Link>
-                    </button>
+                    <Link to="/locations" className="hover:bg-teal-400 flex-1 p-4 text-black font-bold text-center">
+                        Locations/Hours
+                    </Link>
+                    <Link to="/events" class="hover:bg-teal-400 flex-1 p-4 text-black font-bold text-center">
+                        Events
+                    </Link>
                     <button class="hover:bg-teal-400 flex-1 p-4 text-black font-bold">Get a Library Card</button>
                     <button class="hover:bg-teal-400 flex-1 p-4 text-black font-bold">Reserve a Meeting Room</button>
                     <button class="hover:bg-teal-400 flex-1 p-4 text-black font-bold">Donate</button>
