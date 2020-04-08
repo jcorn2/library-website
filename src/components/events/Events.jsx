@@ -75,7 +75,16 @@ function Events() {
                         </div>
                     </div>
                 </div>
-                <div className="w-5/6">Event list</div>
+                <div className="w-5/6 px-8">
+                    <div className="w-1/5 h-32 flex justify-around items-center bg-gray-200 py-4 px-2 mx-1 my-2 rounded">
+                        <div className="h-full w-1 bg-blue-400" />
+                        <div className="whitespace-no-wrap rounded text-center">
+                            <h6>#AACPLReads 2020 Challenge</h6>
+                            <p>All Day</p>
+                            <p>Online Events</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
