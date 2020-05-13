@@ -1,89 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { makeStyles } from '@material-ui/styles';
+import Typography from '@material-ui/core/Typography';
+import FilterMenu from './filterMenu/FilterMenu';
+import EventCard from './eventCard/EventCard';
+
+const useStyles = makeStyles({
+    container: {
+        padding: '16px 32px',
+        height: '100%',
+        overflow: 'auto',
+    },
+    mainContent: {
+        display: 'flex',
+    },
+});
 
 function Events() {
+    const classes = useStyles();
+    const [events, setEvents] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch('http://localhost:3001/events');
+            const data = await response.json();
+            setEvents(data);
+        };
+
+        fetchData();
+    }, [setEvents]);
+
+    console.log(events);
+
     return (
-        <div className="h-full p-4">
-            <h4 className="font-bold text-xl">Upcoming Events</h4>
-            <div className="flex p-4 justify-between">
-                <div className="w-1/6 bg-gray-200 p-2">
-                    <h5>Filters</h5>
-                    <div>
-                        <div>
-                            <h6>Keyword Search</h6>
-                            <input type="text" id="search-bar" placeholder="Search" className="p-2" />
-                        </div>
-                        <div>
-                            <h6>Ongoing Events</h6>
-                            <form className="flex flex-col p-2">
-                                <div>
-                                    <input type="radio" value="Show" id="Show" className="mr-2" />
-                                    <label htmlFor="Show">Show</label>
-                                </div>
-                                <div>
-                                    <input type="radio" value="Hide" id="Hide" className="mr-2" />
-                                    <label htmlFor="Hide">Hide</label>
-                                </div>
-                            </form>
-                        </div>
-                        <div>
-                            <h6>Registration Types</h6>
-                            <form className="flex flex-col p-2">
-                                <div>
-                                    <input type="radio" value="Any" id="Any" className="mr-2" />
-                                    <label htmlFor="Any">Any</label>
-                                </div>
-                                <div>
-                                    <input type="radio" value="Registration Required" id="Registration-Required" className="mr-2" />
-                                    <label htmlFor="Registration-Required">Registration Required</label>
-                                </div>
-                                <div>
-                                    <input type="radio" value="No Registration" id="No-Registration" className="mr-2" />
-                                    <label htmlFor="No-Registration">No Registration</label>
-                                </div>
-                            </form>
-                        </div>
-                        <div>
-                            <h6>Start Time</h6>
-                            <input type="date" />
-                            <h6>End Time</h6>
-                            <input type="date" />
-                        </div>
-                        <div>
-                            <h6>Age</h6>
-                            <form className="flex flex-col p-2">
-                                <div>
-                                    <input type="radio" value="Preschool" id="Preschool" className="mr-2" />
-                                    <label htmlFor="Preschool">Preschool</label>
-                                </div>
-                                <div>
-                                    <input type="radio" value="Kids" id="Kids" className="mr-2" />
-                                    <label htmlFor="Kids">Kids</label>
-                                </div>
-                                <div>
-                                    <input type="radio" value="Teens" id="Teens" className="mr-2" />
-                                    <label htmlFor="Teens">Teens</label>
-                                </div>
-                                <div>
-                                    <input type="radio" value="Adults" id="Adults" className="mr-2" />
-                                    <label htmlFor="Adults">Adults</label>
-                                </div>
-                                <div>
-                                    <input type="radio" value="All" id="All" className="mr-2" />
-                                    <label htmlFor="All">All</label>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div className="w-5/6 px-8">
-                    <div className="w-1/5 h-32 flex justify-around items-center bg-gray-200 py-4 px-2 mx-1 my-2 rounded">
-                        <div className="h-full w-1 bg-blue-400" />
-                        <div className="whitespace-no-wrap rounded text-center">
-                            <h6>#AACPLReads 2020 Challenge</h6>
-                            <p>All Day</p>
-                            <p>Online Events</p>
-                        </div>
-                    </div>
+        <div className={classes.container}>
+            <Typography variant="h4">Upcoming Events</Typography>
+            <div className={classes.mainContent}>
+                <FilterMenu />
+                <div className="w-5/6 px-8 flex flex-wrap justify-around overflow-auto">
+                    {events.map(({ id, title, date }) => (
+                        <EventCard key={id} title={title} date={date} />
+                    ))}
                 </div>
             </div>
         </div>

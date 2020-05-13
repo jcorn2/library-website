@@ -23,10 +23,10 @@ const locations = [
 
 function Locations() {
     return (
-        <div className="p-8 overflow-scroll flex">
-            <div className="w-1/2">
+        <div className="p-8 flex">
+            <div className="w-1/2 h-full">
                 <p className="px-2 mb-2 text-xl">Locations and Hours</p>
-                <div className="flex flex-wrap justify-between">
+                <div className="flex flex-wrap justify-between overflow-scroll">
                     {locations.map((location) => (
                         <div key={location.name} className="w-5/12 bg-gray-200 py-4 px-2 mx-1 my-2 whitespace-no-wrap rounded">
                             <h6>{location.name}</h6>
