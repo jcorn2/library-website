@@ -10,6 +10,7 @@ import Locations from './components/locations/Locations';
 import NavBar from './components/navbar/NavBar';
 import Events from './components/events/Events';
 import Donate from './components/donate/Donate';
+import LibraryCard from './components/libraryCard/LibraryCard';
 import './App.css';
 import './assets/main.css'
 
@@ -23,6 +24,7 @@ function App() {
           <Route exact path="/locations" component={Locations} />
           <Route exact path="/events" component={Events} />
           <Route exact path="/donate" component={Donate} />
+          <Route exact path="/libraryCard" component={LibraryCard} />
         </Switch>
         <Footer />
       </Router>
